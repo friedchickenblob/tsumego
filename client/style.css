@@ -1,0 +1,58 @@
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: #f2f2f2;
+  color: #111;
+  overflow: hidden;
+}
+.hidden { display: none !important; }
+.screen { height: 100%; display: flex; }
+
+#menu, #queue { align-items: center; justify-content: center; padding: 16px; }
+.card {
+  background: #fff;
+  border: 3px solid #000;
+  padding: 28px 32px;
+  width: min(380px, 100%);
+  text-align: center;
+}
+h1 { margin: 0 0 4px; font-size: 2.2rem; letter-spacing: 0.02em; }
+h2 { margin: 0 0 8px; font-size: 1.3rem; }
+.sub { margin: 0 0 20px; color: #555; }
+form { display: flex; flex-direction: column; gap: 8px; text-align: left; }
+label { font-weight: 600; font-size: 0.9rem; }
+input {
+  font: inherit; padding: 10px 12px; border: 2px solid #000; border-radius: 0;
+}
+button {
+  font: inherit; font-weight: 700; padding: 10px 18px; margin-top: 8px;
+  background: #000; color: #fff; border: 2px solid #000; cursor: pointer;
+}
+button:hover { background: #333; }
+button.secondary { background: #fff; color: #000; }
+button.secondary:hover { background: #eee; }
+button:disabled { opacity: 0.5; cursor: default; }
+.status { min-height: 1.2em; margin: 14px 0 0; color: #b00020; }
+
+#game { flex-direction: column; align-items: center; padding: 8px 16px; gap: 8px; }
+#scoreboard {
+  display: flex; align-items: center; gap: 24px; font-weight: 700; font-size: 1.1rem;
+  flex-wrap: wrap; justify-content: center;
+}
+#scoreboard .side { display: flex; align-items: center; gap: 8px; padding: 4px 10px; border: 3px solid transparent; }
+#scoreboard .side.active { border-color: #000; }
+#scoreboard .score { font-variant-numeric: tabular-nums; font-size: 1.4rem; }
+#scoreboard .sub-score { font-weight: 500; color: #555; font-size: 0.9rem; }
+.stone { display: inline-block; width: 16px; height: 16px; border-radius: 50%; border: 1.5px solid #000; }
+.stone.black { background: #111; }
+.stone.white { background: #fff; }
+
+#stage { flex: 1; min-height: 0; width: 100%; display: flex; align-items: center; justify-content: center; }
+#canvas { display: block; }
+
+#controls { display: flex; flex-direction: column; align-items: center; gap: 6px; padding-bottom: 4px; }
+#message { margin: 0; min-height: 1.3em; font-weight: 600; text-align: center; }
+#message.error { color: #b00020; }
+#controls .row { display: flex; gap: 12px; }
+#controls button { margin-top: 0; }

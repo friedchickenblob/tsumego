@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tsumego</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section id="menu" class="screen">
+    <div class="card">
+      <h1>Tsumego</h1>
+      <p class="sub">1 v 1 · 9×9 Go · Japanese rules</p>
+      <form id="join-form">
+        <label for="name">Your name</label>
+        <input id="name" maxlength="16" autocomplete="off" placeholder="Player" required>
+        <button type="submit" id="play">Play</button>
+      </form>
+      <p id="menu-status" class="status" role="status"></p>
+    </div>
+  </section>
+
+  <section id="queue" class="screen hidden">
+    <div class="card">
+      <h2>Waiting for an opponent…</h2>
+      <p class="sub">You'll be matched with the next player who presses Play.</p>
+      <button id="cancel-queue" class="secondary">Cancel</button>
+    </div>
+  </section>
+
+  <section id="game" class="screen hidden">
+    <header id="scoreboard"></header>
+    <div id="stage">
+      <canvas id="canvas"></canvas>
+    </div>
+    <footer id="controls">
+      <p id="message" role="status"></p>
+      <div class="row">
+        <button id="pass">Pass</button>
+        <button id="leave" class="secondary hidden">Back to lobby</button>
+      </div>
+    </footer>
+  </section>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>
