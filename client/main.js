@@ -33,7 +33,7 @@ function connect() {
       const wasPlaying = game && !game.over;
       game = null;
       show('menu');
-      setStatus(wasPlaying ? 'Lost connection to the server.' : '');
+      if (wasPlaying) setStatus('Lost connection to the server.');
     };
     sock.onmessage = (e) => onMessage(JSON.parse(e.data));
   });
@@ -95,6 +95,12 @@ $('pass').addEventListener('click', () => {
 // ---- Match state ------------------------------------------------------------
 
 function startMatch(msg) {
+  if (msg.color !== BLACK && msg.color !== WHITE) {
+    // An older server (e.g. the tank game) answered; it can't play Go.
+    setStatus('The server is running an old version of the game. Restart or redeploy it.');
+    ws?.close();
+    return;
+  }
   game = {
     you: msg.you,
     color: msg.color,
